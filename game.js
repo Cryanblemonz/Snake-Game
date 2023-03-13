@@ -2,6 +2,7 @@ let rows=20;
 let cols=20;
 let blockSize = 25;
 let c;
+let score = -1;
 
 // snake head
 let randomStartPosition = Math.floor(Math.random()*rows);
@@ -18,10 +19,11 @@ let foodPosY;
 let snakeBody = [];
 
 let difficulty = document.getElementById('difficulty');
+let board = document.querySelector("canvas");   
 
-
-
-    let board = document.querySelector("canvas");   
+    if(score > -1){
+    document.querySelector('h2').innerHTML = "Score: " + score;
+    }
     c = board.getContext('2d');
     board.height = rows * blockSize;
     board.width = cols * blockSize;
@@ -74,7 +76,7 @@ function update(){
     }
 
 
-    c.fillStyle="blue";
+    c.fillStyle="#00660F"
     snakeX += velocityX * blockSize;
     snakeY += velocityY * blockSize;
     c.fillRect(snakeX, snakeY, blockSize, blockSize);
@@ -84,13 +86,13 @@ function update(){
 
         if(snakeX <0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
             document.querySelector('h1').innerHTML = "Game Over";
-            document.querySelector('h1').classList.add('game-over');
+            document.querySelector('body').classList.add('game-over');
         }
     
         for(let i = 0; i<snakeBody.length; i++){
             if(snakeX ==snakeBody[i][0] && snakeY == snakeBody[i][1]){
                 document.querySelector('h1').innerHTML = "Game Over";
-                document.querySelector('h1').classList.add('game-over');
+                document.querySelector('body').classList.add('game-over');
             };
         }
     }
@@ -100,6 +102,8 @@ function update(){
 function placeFood(){
     foodPosX = blockSize * Math.floor(Math.random()*rows);
     foodPosY = blockSize * Math.floor(Math.random()*cols);
+    score++;
+    document.querySelector('h2').innerHTML = "Score: " + score;
 }
 
 function changeDirection(e){
