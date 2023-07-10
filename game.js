@@ -31,11 +31,6 @@ placeFood();
 document.addEventListener("keyup", changeDirection);
 update();
 difficulty.addEventListener("change", (event) => {
-    if (difficulty.value == "Impossible") {
-        let speed = 50;
-        startable = true;
-        setInterval(update, speed);
-    }
     if (difficulty.value == "EZPZ") {
         let speed = 200;
         startable = true;
@@ -53,6 +48,11 @@ difficulty.addEventListener("change", (event) => {
     }
     if (difficulty.value == "Hard") {
         let speed = 75;
+        startable = true;
+        setInterval(update, speed);
+    }
+    if (difficulty.value == "Nightmare") {
+        let speed = 50;
         startable = true;
         setInterval(update, speed);
     }
