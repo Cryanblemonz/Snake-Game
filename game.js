@@ -5,6 +5,7 @@ let c;
 let score = -1;
 let startable = false;
 
+
 // snake head
 let randomStartPosition = Math.floor(Math.random() * rows);
 let snakeX = blockSize * randomStartPosition;
@@ -20,6 +21,8 @@ let snakeBody = [];
 
 let difficulty = document.getElementById("difficulty");
 let board = document.querySelector("canvas");
+let boardWidth = board.offsetWidth;
+console.log(boardWidth);
 
 if (score > -1) {
     document.querySelector("h2").innerHTML = "Score: " + score;

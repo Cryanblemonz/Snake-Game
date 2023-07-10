@@ -5,6 +5,10 @@ body {
     background-color: #00e624;
 }
 
+#board {
+    width: 34%;
+}
+
 .background-left {
     height: 100vh;
     width: 30%;
@@ -44,12 +48,12 @@ h1 {
 
 #difficulty-box {
     position: fixed;
-    left: 10%;
+    left: 7%;
     top: 10%;
     background-color: lime;
     border-radius: 10%;
-    padding: 25px;
     border: 3px solid black;
+    padding: 15px 25px;
 }
 
 h2 {
@@ -71,4 +75,62 @@ h2 {
     border: 3px solid black;
     font-weight: 900;
     cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    #board {
+        width: 45%;
+    }
+    .background-left,
+    .background-right {
+        width: 23%;
+    }
+    #difficulty-box {
+        left: 1%;
+    }
+}
+@media (max-width: 700px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    #board {
+        width: 60%;
+    }
+    .background-left,
+    .background-right {
+        width: 18%;
+    }
+    #difficulty-box {
+        left: 8%;
+        top: 0;
+        padding: 5px;
+    }
+    select {
+        margin: 0;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+@media (max-width: 490px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    #board {
+        width: 70%;
+    }
+    .background-left,
+    .background-right {
+        width: 9%;
+    }
+    #difficulty-box {
+        bottom: 1%;
+        left: 10%;
+        top: unset;
+        padding: 5px;
+    }
 }
